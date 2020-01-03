@@ -1,0 +1,11 @@
+Package: squamatabase
+Type: Package
+Title: squamatabase
+Version: 1.0
+Date: 2019-12-03
+Author: Michael C. Grundler
+Maintainer: Michael C. Grundler <mcgrundler@gmail.com>
+Description: Dietary records for snakes (and other squamates)
+NeedsCompilation: no
+License: CC0
+RoxygenNote: 6.0.1
