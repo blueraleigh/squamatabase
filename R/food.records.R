@@ -1,3 +1,14 @@
+#' @title Filter database records
+#'
+#' @description Filter food records by taxonomic and geographic criteria
+#'
+#' @param x A record set (optional). If ommitted defaults to the full database.
+#' @param ... Filter criteria. Valid values can be any database field (for a
+#' description of database fields see \code{?diet}) or the values xmin,
+#' xmax, ymin, ymax.
+#'
+#' @return A record set (a set of rows in the database) where each row matches
+#' the criteria passed to the function via the \code{...} parameter.
 filter_records = function(x, ...)
 {
     if (missing(x))
@@ -61,6 +72,19 @@ filter_records = function(x, ...)
 }
 
 
+#' @title Built-in prey classification schemes
+#'
+#' @description Categorize prey items according to higher taxonomy
+#'
+#' @param x A record set.
+#' @details These two functions inspect the higher taxonomy and lifestage
+#' fields of each row in the record set and automatically make a determination
+#' as to which prey group the prey item belongs to. The functions differ in
+#' their level of taxonomic resolution. The different prey groups and criteria
+#' used to perform the categorizations are accessible by inspecting the function
+#' body, which can be achieved by typing the function name into the R console.
+#' @return A character vector naming the prey group of each row in the record
+#' set.
 prey_coarse = function(x)
 {
     group = list(
@@ -166,6 +190,7 @@ prey_coarse = function(x)
 }
 
 
+#' @describeIn prey_coarse prey_detailed
 prey_detailed = function(x)
 {
     group = list(
@@ -329,6 +354,18 @@ prey_detailed = function(x)
 }
 
 
+#' @title Classify prey into groups
+#'
+#' @description Classify prey into a set of user-defined categories
+#'
+#' @param x A record set
+#' @param group Either a character vector specifying one of the built-in prey
+#' classifications ("coarse" or "detailed") or a user-defined function modeled
+#' after these two built-ins that will perform a custom prey classification.
+#'
+#' @return A record set with an additional column -- "prey_group" -- containing
+#' the result of the prey categorization.
+#' @seealso \code{\link{prey_coarse}}, \code{\link{prey_detailed}}
 group_prey = function(x, group="coarse")
 {
     if (class(group) == "character")
@@ -345,6 +382,23 @@ group_prey = function(x, group="coarse")
 }
 
 
+#' @title Aggregate database records
+#'
+#' @description Aggregate database records according to different criteria
+#'
+#' @param x A record set
+#' @param ... A set of database field names used in the aggregation process
+#' @details The default result is a three column dataframe where each row is
+#' a tuple of the form (n, p, q), where n is a snake species, p is a prey group,
+#' and q = min(predator_count, prey_count). In other words, each row is the
+#' minimum number of instances of prey group p recorded in the diet of snake
+#' taxon n. Additional database fields specified via \code{...} augment this
+#' row tuple with more information. For example, passing "locality_adm0_name"
+#' through \code{...} would yield tuples of the form (n, p, r, q), and the
+#' interpretation becomes the minimum number of instances of prey group p
+#' recorded in the diet of snake taxon n in country r.
+#' @return A dataframe summarizing counts of prey items in snake diet samples.
+#' See details for how summarization takes place.
 aggregate_records = function(x, ...)
 {
     if (!"prey_group" %in% colnames(x))
@@ -377,6 +431,14 @@ aggregate_records = function(x, ...)
 }
 
 
+#' @title Collapse predator ranks
+#'
+#' @description Collapse predator ranks to desired taxonomic level
+#'
+#' @param x A record set
+#' @param predator_rank Desired taxonomic level. Should be one of "species",
+#' "genus", or "family"
+#' @return A record set with predator ranks collapsed to the desired level.
 collapse_ranks = function(x, predator_rank)
 {
     ranks = c("infraspecies", "species", "genus", "family")
