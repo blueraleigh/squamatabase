@@ -67,10 +67,7 @@ filter_records = function(x, ...)
             }
             else
             {
-                if (length(criteria) > 1)
-                    filter = filter & (x[, field] %in% criteria)
-                else
-                    filter = filter & (x[, field] == criteria)
+                filter = filter & (x[, field] %in% criteria)
             }
         }
 
