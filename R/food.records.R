@@ -9,6 +9,15 @@
 #'
 #' @return A record set (a set of rows in the database) where each row matches
 #' the criteria passed to the function via the \code{...} parameter.
+#' @examples
+#' # ommitting all arguments returns the full database
+#' diet = filter_records()
+#'
+#' # constraining the record set to only include a specific taxon
+#' diet = filter_records(diet, predator_taxon = "Chironius")
+#'
+#' # constraining the record set to only include records from a specific country
+#' diet = filter_records(diet, locality_adm0_name = "Peru")
 filter_records = function(x, ...)
 {
     if (missing(x))

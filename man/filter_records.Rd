@@ -20,3 +20,13 @@ the criteria passed to the function via the \code{...} parameter.
 \description{
 Filter food records by taxonomic and geographic criteria
 }
+\examples{
+# ommitting all arguments returns the full database
+diet = filter_records()
+
+# constraining the record set to only include a specific taxon
+diet = filter_records(diet, predator_taxon = "Chironius")
+
+# constraining the record set to only include records from a specific country
+diet = filter_records(diet, locality_adm0_name = "Peru")
+}
