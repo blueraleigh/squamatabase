@@ -30,17 +30,17 @@ data(diet, envir=.diet)
 #' cases, however, a specimen refers to a set of individuals that belong to the
 #' same taxon. The following fields are associated with each record:
 #' \describe{
-#' \item{predator_verbatim} {The scientific name of the predator as reported by
+#' \item{predator_verbatim}{The scientific name of the predator as reported by
 #' the original authors.}
-#' \item{predator} {The scientific name the predator according to the 2016
+#' \item{predator}{The scientific name the predator according to the 2016
 #' Catalogue of Life taxonomy.}
-#' \item{predator_rank} {The Linnean rank of the predator. Typically this
+#' \item{predator_rank}{The Linnean rank of the predator. Typically this
 #' will be "species" or "infraspecies".}
-#' \item{predator_taxon} {A semicolon separated list of the higher taxonomic
+#' \item{predator_taxon}{A semicolon separated list of the higher taxonomic
 #' names that apply to the predator.}
-#' \item{predator_count} {The number of individual predator organisms involved
+#' \item{predator_count}{The number of individual predator organisms involved
 #' in the interaction.}
-#' \item{predator_voucher} {A unique identifier for the specimen that is either
+#' \item{predator_voucher}{A unique identifier for the specimen that is either
 #' (1) a bona fide museum voucher number or (2) a randomly generated
 #' alphanumeric code. The rationale for this field is that same predator specimen
 #' may have eaten multiple prey specimens that carry unique identifying information
@@ -57,51 +57,51 @@ data(diet, envir=.diet)
 #' will have a unique randomly generated predator_voucher. This is because there
 #' is no way, without further information, to know whether any of the individuals
 #' eating prey Y also ate prey Z.}
-#' \item{predator_sex} {The sex of the specimen. Typically only used when the
+#' \item{predator_sex}{The sex of the specimen. Typically only used when the
 #' predator_count field is 1.}
-#' \item{predator_age} {The age of the specimen.Typically only used when the
+#' \item{predator_age}{The age of the specimen.Typically only used when the
 #' predator_count field is 1.}
-#' \item{predator_svl} {The snout-vent-length (in mm) of the specimen. Typically
+#' \item{predator_svl}{The snout-vent-length (in mm) of the specimen. Typically
 #' only used when the predator_count field is 1.}
-#' \item{predator_tl} {The total length (in mm) of the specimen. Typically
+#' \item{predator_tl}{The total length (in mm) of the specimen. Typically
 #' only used when the predator_count field is 1.}
-#' \item{predator_mass} {The mass (in grams) of the specimen. Typically only
+#' \item{predator_mass}{The mass (in grams) of the specimen. Typically only
 #' used when the predator_count field is 1.}
-#' \item{\bold{NOTE}} {All of the above fields with the exception of the svl
+#' \item{\bold{NOTE}}{All of the above fields with the exception of the svl
 #' field are also recorded for the prey specimen, and hence take the prefix
 #' "prey". Additionally, the following field is unique to the prey specimen:}
-#' \item{prey_ingested} {The orientation in which the prey specimen was
+#' \item{prey_ingested}{The orientation in which the prey specimen was
 #' swallowed. Typically only used when the prey_count field is 1.}
-#' \item{locality_adm0_name} {The country where the predation event occurred.}
-#' \item{locality_adm1_name} {The state where the predation event occurred.}
-#' \item{locality_adm2_name} {The county where the predation event occurred.}
-#' \item{locality_longitude} {Decimal longitude where the predation event occurred.}
-#' \item{locality_latitude} {Decimal latitude where the predation event occurred.}
-#' \item{event_basis} {Evidentiary basis for the reported predation event.
+#' \item{locality_adm0_name}{The country where the predation event occurred.}
+#' \item{locality_adm1_name}{The state where the predation event occurred.}
+#' \item{locality_adm2_name}{The county where the predation event occurred.}
+#' \item{locality_longitude}{Decimal longitude where the predation event occurred.}
+#' \item{locality_latitude}{Decimal latitude where the predation event occurred.}
+#' \item{event_basis}{Evidentiary basis for the reported predation event.
 #' Typically "direct_observation" or "dissected_gut_contents".}
-#' \item{event_setting} {A note indicating whether the predation event was
+#' \item{event_setting}{A note indicating whether the predation event was
 #' observed in a natural or a captive setting. Almost all records in the
 #' database are recorded from natural settings. Observations resulting from
 #' dissections of museum specimens are assumed to have occurred in a natural
 #' setting.}
-#' \item{event_date} {YYYY-MM-DD formatted date when the predation event was
+#' \item{event_date}{YYYY-MM-DD formatted date when the predation event was
 #' observed. If the observation resulted from an examination of gut contents
 #' this field is the collection date of the specimen.}
-#' \item{event_start} {HH:MM formatted time when the predation event was first
+#' \item{event_start}{HH:MM formatted time when the predation event was first
 #' noted, measured on a 24 hour clock to avoid AM and PM designations.}
-#' \item{event_end} {HH:MM formatted time when the predation event ended,
+#' \item{event_end}{HH:MM formatted time when the predation event ended,
 #' measured on a 24 hour clock to avoid AM and PM designations.}
-#' \item{event_outcome} {If the predation event was successful this field takes
+#' \item{event_outcome}{If the predation event was successful this field takes
 #' the value "prey_eaten". This is always the case if the observation is based
 #' on dissections of museum specimens. However, for observations based on
 #' encounters with snakes in the field other outcomes are possible and the
 #' values in this field are self-explanatory (e.g. "predation_interrupted_by_observer").}
-#' \item{event_habitat} {A simple habitat descriptor indicating whether the
+#' \item{event_habitat}{A simple habitat descriptor indicating whether the
 #' predation occurred in a terrestrial, fossorial, arboreal, or aquatic setting.}
-#' \item{event_habitat_verbatim} {Habitat description in the words of the
+#' \item{event_habitat_verbatim}{Habitat description in the words of the
 #' original authors.}
-#' \item{event_remark} {Miscellaneous narrative information regarded as
+#' \item{event_remark}{Miscellaneous narrative information regarded as
 #' potentially relevant.}
-#' \item{reference} {Bibliographic citation to the original source of the record.}
+#' \item{reference}{Bibliographic citation to the original source of the record.}
 #'}
 "diet"
