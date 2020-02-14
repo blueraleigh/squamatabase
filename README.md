@@ -37,7 +37,7 @@ snake lineages. Each point on the globe below represents a georeferenced
 predation event, and the bar graph to the left shows the snake family level
 distribution of those records.
 
-![sb_records](https://user-images.githubusercontent.com/5657714/74569820-52e27080-4f49-11ea-8936-3e59ad19822e.png)
+![sb_records](https://user-images.githubusercontent.com/5657714/74570395-73f79100-4f4a-11ea-8e3c-5a16d1f323ed.png)
 
 # Installation
 
