@@ -6,7 +6,7 @@ my time as a PhD student at the University of Michigan.
 
 # Compilation methods
 
-I compiled SquamataBase from numerous articles published in
+I compiled Squamatabase from numerous articles published in
 scientific journals. I located material both through the use of
 keyword queries in academic search engines and by systematic
 review of table of contents for well-known herpetological journals
@@ -24,6 +24,14 @@ consuming a prey or had recently consumed a prey item that could
 be regurgitated by forced palpation. Glaudas et al. (2017) have
 noted that these sources of information can provide different
 pictures of the prey spectrum for Bitis arietans (Puff Adder).
+
+# Data archives
+
+Each new release (corresponding to the addition of new data or new
+functionality) is archived in the Zenodo data repository and receives
+a DOI number listed at the top of this repository. Users who simply
+want the raw data without bothering with package installation can download
+the diet.csv file in the inst/ directory.
 
 # Installation
 
