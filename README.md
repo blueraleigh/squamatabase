@@ -1,7 +1,7 @@
 # Description
 
 Squamatabase is a database of prey items recorded in diet samples 
-from the world's snakes, compiled by me, Michael C. Grundler, during
+from the world's snakes, compiled by [me](https://blueraleigh.github.io), during
 my time as a PhD student at the University of Michigan.
 
 # Compilation methods
