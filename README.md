@@ -4,27 +4,6 @@ Squamatabase is a database of prey items recorded in diet samples
 from the world's snakes, compiled by [me](https://blueraleigh.github.io), during
 my time as a PhD student at the University of Michigan.
 
-# Compilation methods
-
-I compiled Squamatabase from numerous articles published in
-scientific journals. I located material both through the use of
-keyword queries in academic search engines and by systematic
-review of table of contents for well-known herpetological journals
-(e.g. Herpetological Review, Herpetology Notes). I also located
-additional relevant articles by consulting the references in
-reviewed articles. My goal was simply to track down as many
-relevant sources as possible. The current compilation includes
-data from approximately 1700 different sources but remains
-incomplete in many ways (e.g., geographically and taxonomically).
-
-The majority of observations in the database result from papers
-describing (1) dissections of fluid preserved museum specimens and
-(2) direct encounters with snakes in the field that were actively
-consuming a prey or had recently consumed a prey item that could
-be regurgitated by forced palpation. Glaudas et al. (2017) have
-noted that these sources of information can provide different
-pictures of the prey spectrum for Bitis arietans (Puff Adder).
-
 # Data archives
 
 Each new release (corresponding to the addition of new data or new
@@ -50,6 +29,48 @@ devtools::install_github("blueraleigh/squamatabase")
 
 Alternatively, the tarball for this repository can be downloaded and 
 installed via R CMD INSTALL.
+
+# Examples
+
+```{r}
+# Getting started
+library(squamatabase)
+
+# For a list of available functions
+?squamatabase
+
+# For documentation of database structure
+?diet
+```
+
+```{r}
+# To load the full record set we can do ...
+data(diet)
+
+# ... or we can do
+diet = filter_records()
+```
+
+# Compilation methods
+
+I compiled Squamatabase from numerous articles published in
+scientific journals. I located material both through the use of
+keyword queries in academic search engines and by systematic
+review of table of contents for well-known herpetological journals
+(e.g. Herpetological Review, Herpetology Notes). I also located
+additional relevant articles by consulting the references in
+reviewed articles. My goal was simply to track down as many
+relevant sources as possible. The current compilation includes
+data from approximately 1700 different sources but remains
+incomplete in many ways (e.g., geographically and taxonomically).
+
+The majority of observations in the database result from papers
+describing (1) dissections of fluid preserved museum specimens and
+(2) direct encounters with snakes in the field that were actively
+consuming a prey or had recently consumed a prey item that could
+be regurgitated by forced palpation. Glaudas et al. (2017) have
+noted that these sources of information can provide different
+pictures of the prey spectrum for Bitis arietans (Puff Adder).
 
 # Database fields
 
