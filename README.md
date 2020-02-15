@@ -23,7 +23,7 @@ distribution of those records.
 Squamatabase can be installed from an R session using the following
 command
 
-```
+```r
 devtools::install_github("blueraleigh/squamatabase")
 ```
 
@@ -74,26 +74,59 @@ screen(2)
 par(mar=c(0,0,0,0), oma=c(0,0,0,1))
 plot.new()
 plot.window(xlim=c(-1,1), ylim=c(-1, 1), asp=1)
-maps::map(interior=FALSE, proj="ortho", orient=c(15, -90, 0), fill=TRUE, 
-    col="#f6e8c3", mar=c(0,0,0,0), add=TRUE)
+maps::map(
+    interior=FALSE, 
+    proj="ortho", 
+    orient=c(15, -90, 0),
+    fill=TRUE, 
+    col="#f6e8c3",
+    mar=c(0,0,0,0), 
+    add=TRUE
+)
 theta = seq(0, 2*pi, length.out=512)
 polygon(cos(theta), sin(theta), col="#91bfdb")
-maps::map(interior=FALSE, proj="ortho", orient=c(15, -90, 0), fill=TRUE, 
-    col="#f6e8c3", add=TRUE)
-coords = mapproj::mapproject(diet$locality_longitude, diet$locality_latitude, 
-    proj="ortho", orient=c(15, -90, 0))
+maps::map(
+    interior=FALSE, 
+    proj="ortho", 
+    orient=c(15, -90, 0), 
+    fill=TRUE, 
+    col="#f6e8c3", 
+    add=TRUE
+)
+coords = mapproj::mapproject(
+    diet$locality_longitude, 
+    diet$locality_latitude, 
+    proj="ortho", 
+    orient=c(15, -90, 0)
+)
 points(coords$x, coords$y, col="#8c510a", pch="+", cex=0.8)
 screen(3)
 par(mar=c(0,0,0,0), oma=c(0,0,0,0))
 plot.new()
 plot.window(xlim=c(-1,1), ylim=c(-1,1), asp=1)
-maps::map(interior=FALSE, proj="ortho", orient=c(15, 70, 0), fill=TRUE, 
-    col="#f6e8c3", add=TRUE)
+maps::map(
+    interior=FALSE, 
+    proj="ortho", 
+    orient=c(15, 70, 0), 
+    fill=TRUE, 
+    col="#f6e8c3", 
+    add=TRUE
+)
 polygon(cos(theta), sin(theta), col="#91bfdb")
-maps::map(interior=FALSE, proj="ortho", orient=c(15, 70, 0), fill=TRUE, 
-    col="#f6e8c3", add=TRUE)
-coords = mapproj::mapproject(diet$locality_longitude, diet$locality_latitude, 
-    proj="ortho", orient=c(15, 70, 0))
+maps::map(
+    interior=FALSE, 
+    proj="ortho", 
+    orient=c(15, 70, 0), 
+    fill=TRUE, 
+    col="#f6e8c3", 
+    add=TRUE
+)
+coords = mapproj::mapproject(
+    diet$locality_longitude, 
+    diet$locality_latitude, 
+    proj="ortho", 
+    orient=c(15, 70, 0)
+)
 points(coords$x, coords$y, col="#8c510a", pch="+", cex=0.8)
 screen(1)
 par(oma=c(0, 2, 0, 0), mar=c(5.1, 4.1, 2.1, 0.1))
