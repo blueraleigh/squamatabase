@@ -47,7 +47,58 @@ library(squamatabase)
 data(diet)
 
 # ... or we can do
-diet = filter_records()
+diet = squamatabase::filter_records()
+```
+```{r}
+# To reproduce the graph above:
+
+# Fetch the full record set
+diet = squamatabase::filter_records()
+
+# Filter the record set to weed out any miscellaneous non-snakes
+diet = squamatabase::filter_records(diet, predator_taxon="Serpentes")
+
+# Collapse all identified snakes to the level of taxonomic family
+diet = squamatabase::collapse_ranks(diet, "family")
+
+# Compute family-level counts
+counts = pmin(diet$predator_count, diet$prey_count, na.rm=TRUE)
+family_counts = sort(tapply(counts, diet$predator, sum, na.rm=TRUE))
+
+# And finally the labor for the plot
+dev.new(width=10.5, height=5)
+close.screen(all.screens=TRUE)
+split.screen(c(1, 3))
+screen(2)
+par(mar=c(0,0,0,0), oma=c(0,0,0,1))
+plot.new()
+plot.window(xlim=c(-1,1), ylim=c(-1, 1), asp=1)
+maps::map(interior=FALSE, proj="ortho", orient=c(15, -90, 0), fill=TRUE, 
+    col="#f6e8c3", mar=c(0,0,0,0), add=TRUE)
+theta = seq(0, 2*pi, length.out=512)
+polygon(cos(theta), sin(theta), col="#91bfdb")
+maps::map(interior=FALSE, proj="ortho", orient=c(15, -90, 0), fill=TRUE, 
+    col="#f6e8c3", add=TRUE)
+coords = mapproj::mapproject(diet$locality_longitude, diet$locality_latitude, 
+    proj="ortho", orient=c(15, -90, 0))
+points(coords$x, coords$y, col="#8c510a", pch="+", cex=0.8)
+screen(3)
+par(mar=c(0,0,0,0), oma=c(0,0,0,0))
+plot.new()
+plot.window(xlim=c(-1,1), ylim=c(-1,1), asp=1)
+maps::map(interior=FALSE, proj="ortho", orient=c(15, 70, 0), fill=TRUE, 
+    col="#f6e8c3", add=TRUE)
+polygon(cos(theta), sin(theta), col="#91bfdb")
+maps::map(interior=FALSE, proj="ortho", orient=c(15, 70, 0), fill=TRUE, 
+    col="#f6e8c3", add=TRUE)
+coords = mapproj::mapproject(diet$locality_longitude, diet$locality_latitude, 
+    proj="ortho", orient=c(15, 70, 0))
+points(coords$x, coords$y, col="#8c510a", pch="+", cex=0.8)
+screen(1)
+par(oma=c(0, 2, 0, 0), mar=c(5.1, 4.1, 2.1, 0.1))
+barplot(r, horiz=TRUE, cex.names=0.7, log='x', las=1, xaxt="n")
+axis(1, at=c(1, 10, 100, 1000, 10000))
+mtext("Number of prey items", 1, 2.5)
 ```
 
 # Database compilation
