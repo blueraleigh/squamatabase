@@ -32,7 +32,7 @@ installed via R CMD INSTALL.
 
 # Getting started
 
-```{r}
+```r
 library(squamatabase)
 
 # For a list of available functions
@@ -42,14 +42,15 @@ library(squamatabase)
 ?diet
 ```
 
-```{r}
+```r
 # To load the full record set we can do ...
 data(diet)
 
 # ... or we can do
 diet = squamatabase::filter_records()
 ```
-```{r}
+
+```r
 # To reproduce the graph above:
 
 # Fetch the full record set
@@ -96,7 +97,7 @@ coords = mapproj::mapproject(diet$locality_longitude, diet$locality_latitude,
 points(coords$x, coords$y, col="#8c510a", pch="+", cex=0.8)
 screen(1)
 par(oma=c(0, 2, 0, 0), mar=c(5.1, 4.1, 2.1, 0.1))
-barplot(r, horiz=TRUE, cex.names=0.7, log='x', las=1, xaxt="n")
+barplot(family_counts, horiz=TRUE, cex.names=0.7, log='x', las=1, xaxt="n")
 axis(1, at=c(1, 10, 100, 1000, 10000))
 mtext("Number of prey items", 1, 2.5)
 ```
