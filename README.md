@@ -30,10 +30,9 @@ devtools::install_github("blueraleigh/squamatabase")
 Alternatively, the tarball for this repository can be downloaded and 
 installed via R CMD INSTALL.
 
-# Examples
+# Getting started
 
 ```{r}
-# Getting started
 library(squamatabase)
 
 # For a list of available functions
@@ -51,7 +50,7 @@ data(diet)
 diet = filter_records()
 ```
 
-# Compilation methods
+# Database compilation
 
 I compiled Squamatabase from numerous articles published in
 scientific journals. I located material both through the use of
