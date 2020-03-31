@@ -1,0 +1,10 @@
+citHeader("To cite squamatabase in a publication, please use:")
+
+citEntry(entry="Article",
+        title = "SquamataBase: a natural history database and R package for comparative biology of snake feeding habits",
+        author = personList(as.person("Michael C. Grundler")),
+        journal = "Biodiversity Data Journal",
+        year = "2020",
+        volume = "8",
+    doi = "10.3897/BDJ.8.e49943",
+        textVersion = "Grundler, M.C. 2020. SquamataBase: a natural history database and R package for comparative biology of snake feeding habits. Biodiversity Data Journal 8: e49943 doi:10.3897/BDJ.8.e49943")
