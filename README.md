@@ -8,7 +8,7 @@ my time as a PhD student at the University of Michigan.
 
 Each new release (corresponding to the addition of new data or new
 functionality) is archived in the Zenodo data repository and receives
-a DOI number listed at the top of this repository. Users who simply
+a [DOI](https://doi.org/10.5281/zenodo.3667777). Users who simply
 want the raw data without bothering with package installation can download
 the diet.csv file in the inst/ directory. The current archive contains
 around 30,000 predator-prey records sampled from around the world and many different
