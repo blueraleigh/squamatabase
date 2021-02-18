@@ -24,7 +24,7 @@ Squamatabase can be installed from an R session using the following
 command
 
 ```r
-devtools::install_github("blueraleigh/squamatabase")
+remotes::install_github("blueraleigh/squamatabase")
 ```
 
 Alternatively, the tarball for this repository can be downloaded and 
