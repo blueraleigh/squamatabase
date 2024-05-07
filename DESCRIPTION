@@ -8,4 +8,5 @@ Maintainer: Michael C. Grundler <mcgrundler@gmail.com>
 Description: Dietary records for snakes (and other squamates)
 NeedsCompilation: no
 License: CC0
+Depends: R (>= 3.5.0)
 RoxygenNote: 6.0.1
